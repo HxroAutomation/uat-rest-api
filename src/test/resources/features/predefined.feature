@@ -11,4 +11,6 @@ Feature: Smoke steps
     Then I wait for element with xpath "//*[@id='res']" to be present
     Then element with xpath "//*[@id='res']" should contain text "Cucumber"
 
+
+
   

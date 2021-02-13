@@ -1,11 +1,8 @@
-// Created by Viacheslav (Slava) Skryabin 04/01/2011
+// Created by Anvar Baltakhojayev 12/01/2020
 package support;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -27,6 +24,11 @@ import java.util.Map;
 public class TestContext {
 
     private static WebDriver driver;
+
+    // Casting WebDriver to JavascriptExecuter
+    public static JavascriptExecutor getExecuter(){
+        return (JavascriptExecutor) driver;
+    }
 
     public static WebDriver getDriver() {
         return driver;
