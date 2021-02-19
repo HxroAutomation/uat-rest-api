@@ -5,6 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en_lol.WEN;
 import cucumber.api.java.en_old.Ac;
 import cucumber.api.java8.Th;
+import io.restassured.RestAssured;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
@@ -15,6 +16,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HxroPage;
+import support.HxroRestWrapper;
 import support.Loggable;
 import support.TestContext;
 import support.Hooks;
@@ -28,8 +30,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.*;
-import static support.TestContext.getDriver;
-import static support.TestContext.getExecuter;
+import static support.TestContext.*;
 
 public class HxroStepDefs implements Loggable {
 
@@ -70,4 +71,14 @@ public class HxroStepDefs implements Loggable {
         wait.until(ExpectedConditions.elementToBeClickable(getDriver()
                 .findElement(By.xpath("//button[@id='reg-button']"))));
     }
+
+    @Given("I sign up new {string} in hxro via REST API")
+    public void iSignUpInHxroViaRESTAPI(String testAccount) {
+        new HxroRestWrapper().registerUser(getData(testAccount));
+    }
+
+    @Then("I verify account info via REST API")
+    public void iVerifyAccountInfoViaRESTAPI() {
+    }
+
 }

@@ -28,10 +28,9 @@ public class HxroRestWrapper {
         return userCreatedInfo;
     }
 
-    public void login(Map<String, Object> credentials) {
+    public void registerUser(Map<String, String> credentials) {
 
         // prepare
-
         RequestSpecification request = RestAssured
                 .given()
                 .log().all()
