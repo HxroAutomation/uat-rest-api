@@ -15,6 +15,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.yaml.snakeyaml.Yaml;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,6 +29,18 @@ import java.util.Map;
 public class TestContext {
 
     private static WebDriver driver;
+
+    public static Map<String, String> getData(String fileName) {
+        String path = System.getProperty("user.dir") + "/src/test/resources/data/" + fileName + ".yml";
+        File file = new File(path);
+        FileInputStream stream = null;
+        try {
+            stream = new FileInputStream(file);
+        } catch (FileNotFoundException exception) {
+            System.err.println(exception.getMessage());
+        }
+        return new Yaml().load(stream);
+    }
 
     // Casting WebDriver to JavascriptExecuter
     public static JavascriptExecutor getExecuter(){

@@ -8,6 +8,7 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.util.concurrent.TimeUnit;
 
+import static support.TestContext.getData;
 import static support.TestContext.getDriver;
 
 public class Hooks {
@@ -19,6 +20,11 @@ public class Hooks {
         getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         getDriver().manage().window().maximize();
         getDriver().manage().deleteAllCookies();
+    }
+
+    @Before(order = 1, value = "@register_new_user")
+    public void registerNewUser() {
+        new HxroRestWrapper().registerUser(getData("hxro_accounts"));
     }
 
     @After(order = 0)
