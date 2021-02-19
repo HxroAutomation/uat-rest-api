@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HxroPage;
-import support.HxroRestWrapper;
+//import support.HxroRestWrapper;
 import support.Loggable;
 import support.TestContext;
 import support.Hooks;
@@ -72,13 +72,13 @@ public class HxroStepDefs implements Loggable {
                 .findElement(By.xpath("//button[@id='reg-button']"))));
     }
 
-    @Given("I sign up new {string} in hxro via REST API")
-    public void iSignUpInHxroViaRESTAPI(String testAccount) {
-        new HxroRestWrapper().registerUser(getData(testAccount));
-    }
-
-    @Then("I verify account info via REST API")
-    public void iVerifyAccountInfoViaRESTAPI() {
-    }
+//    @Given("I sign up new {string} in hxro via REST API")
+//    public void iSignUpInHxroViaRESTAPI(String testAccount) {
+//        new HxroRestWrapper().registerUser(getData(testAccount));
+//    }
+//
+//    @Then("I verify account info via REST API")
+//    public void iVerifyAccountInfoViaRESTAPI() {
+//    }
 
 }
