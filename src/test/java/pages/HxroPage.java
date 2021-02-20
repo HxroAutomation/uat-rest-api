@@ -27,9 +27,6 @@ public class HxroPage extends Page{
         tixWix.click();
     }
 
-    public void clickRegisterButton() {
-        registerButton.click();
-    }
-
+    public void clickRegisterButton() {registerButton.click();}
 
 }

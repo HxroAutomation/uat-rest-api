@@ -44,11 +44,11 @@ public class HxroStepDefs implements Loggable {
         } else {
             throw new RuntimeException("Unsupported page " + webpage);
         }
-        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Then("I verify elements on the page")
     public void iVerifyElementsOnThePage() {
+        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @And("I select {string}")
