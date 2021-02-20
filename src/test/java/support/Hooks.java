@@ -22,10 +22,10 @@ public class Hooks {
         getDriver().manage().deleteAllCookies();
     }
 
-    @Before(order = 1, value = "@register_new_user")
-    public void registerNewUser() {
-        new HxroRestWrapper().registerUser(getData("hxro_accounts"));
-    }
+//    @Before(order = 1, value = "@register_new_user")
+//    public void registerNewUser() {
+//        new HxroRestWrapper().registerUser(getData("hxro_accounts"));
+//    }
 
     @After(order = 0)
     public void scenarioEnd(Scenario scenario) {

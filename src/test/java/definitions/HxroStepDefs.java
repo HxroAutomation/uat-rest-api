@@ -44,6 +44,7 @@ public class HxroStepDefs implements Loggable {
         } else {
             throw new RuntimeException("Unsupported page " + webpage);
         }
+        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Then("I verify elements on the page")
